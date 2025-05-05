@@ -55,35 +55,35 @@ class _CalculationRowState extends State<CalculationRow> {
     return Card(
       color: Colors.white70,
       margin: EdgeInsets.symmetric(
-        horizontal: ScreenUtil.scaleW(10),
-        vertical: ScreenUtil.scaleH(7),
-      ), // Responsive margin
+        horizontal: ScreenUtil.scaleW(8),
+        vertical: ScreenUtil.scaleH(5),
+      ), // Reduced margin
       child: Padding(
-        padding: EdgeInsets.symmetric(vertical: ScreenUtil.scaleW(9),horizontal:ScreenUtil.scaleW(7) ), // Responsive padding
+        padding: EdgeInsets.symmetric(vertical: ScreenUtil.scaleW(6), horizontal: ScreenUtil.scaleW(5)), // Reduced padding
         child: Row(
           children: [
             Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(widget.imagePath,
-                    height: ScreenUtil.scaleH(20)), // Responsive image size
-                SizedBox(height: ScreenUtil.scaleH(5)),
+                    height: ScreenUtil.scaleH(16)), // Reduced image size
+                SizedBox(height: ScreenUtil.scaleH(4)), // Reduced spacing
                 Text(
                   "₹${widget.fixedValue}",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: ScreenUtil.scaleFont(20), // Responsive font size
+                    fontSize: ScreenUtil.scaleFont(14), // Reduced font size
                   ),
                 ),
               ],
             ),
-            SizedBox(width: ScreenUtil.scaleW(10)), // Responsive spacing
-            const Icon(CupertinoIcons.multiply),
-            SizedBox(width: ScreenUtil.scaleW(10)), // Responsive spacing
+            SizedBox(width: ScreenUtil.scaleW(6)), // Reduced spacing
+            const Icon(CupertinoIcons.multiply, size: 18), // Reduced icon size
+            SizedBox(width: ScreenUtil.scaleW(6)), // Reduced spacing
             SizedBox(
-              width: ScreenUtil.scaleW(90), // Reduced width of TextField
+              width: ScreenUtil.scaleW(110), // Reduced width of TextField
               child: AutoSizeTextField(
-                style: TextStyle(fontSize: ScreenUtil.scaleFont(20)),
+                style: TextStyle(fontSize: ScreenUtil.scaleFont(16)), // Reduced font size
                 controller: _controller,
                 keyboardType: TextInputType.number,
                 cursorColor: Colors.teal,
@@ -94,37 +94,37 @@ class _CalculationRowState extends State<CalculationRow> {
                 textAlign: TextAlign.center, // Center the cursor and input text
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(ScreenUtil.scaleW(15)), // Responsive border radius
+                    borderRadius: BorderRadius.circular(ScreenUtil.scaleW(12)), // Reduced border radius
                   ),
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.teal,
                       width: 2,
                     ),
-                    borderRadius: BorderRadius.circular(ScreenUtil.scaleW(15)),
+                    borderRadius: BorderRadius.circular(ScreenUtil.scaleW(12)),
                   ),
                 ),
                 onChanged: _calculateResult,
               ),
             ),
-            SizedBox(width: ScreenUtil.scaleW(10)), // Responsive spacing
-            const Icon(CupertinoIcons.equal),
-            SizedBox(width: ScreenUtil.scaleW(2)), // Responsive spacing
+            SizedBox(width: ScreenUtil.scaleW(6)), // Reduced spacing
+            const Icon(CupertinoIcons.equal, size: 18), // Reduced icon size
+            SizedBox(width: ScreenUtil.scaleW(2)), // Reduced spacing
             Container(
-              height: ScreenUtil.scaleH(40), // Responsive height
-              width: ScreenUtil.scaleW(120), // Increased width of result container
+              height: ScreenUtil.scaleH(35), // Reduced height
+              width: ScreenUtil.scaleW(100), // Reduced width of result container
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(
-                    ScreenUtil.scaleW(10)), // Responsive border radius
+                    ScreenUtil.scaleW(8)), // Reduced border radius
                 color: Colors.grey[200],
               ),
               alignment: Alignment.center,
               child: Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
+                padding: EdgeInsets.symmetric(horizontal: 6.0), // Reduced padding
                 child: AutoSizeText(
                   "₹$formattedResult", // Formatted result with commas
                   style: TextStyle(
-                    fontSize: ScreenUtil.scaleFont(20), // Responsive font size
+                    fontSize: ScreenUtil.scaleFont(16), // Reduced font size
                     fontWeight: FontWeight.bold,
                   ),
                   maxLines: 1,

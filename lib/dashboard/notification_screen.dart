@@ -1,4 +1,3 @@
-import 'package:cash_easy/dashboard/web_view_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -68,36 +67,24 @@ class _NotificationScreenState extends State<NotificationScreen> {
 
   // Method to launch the URL
 
+
   Future<void> _launchURL(String url) async {
     final uri = Uri.parse(url);
 
     try {
-      // Try to launch in external app
-      if (await canLaunchUrl(uri)) {
-        final launched = await launchUrl(uri, mode: LaunchMode.externalApplication);
-
-        if (!launched) {
-          // If launching failed, fallback to WebView
-          _openInWebView(url);
-        }
+      // Test with a very simple URL
+      final result = await canLaunchUrl(uri);
+      print("Can launch: $result");
+      if (result) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
       } else {
-        // If can't launch, fallback to WebView
-        _openInWebView(url);
+        print("Cannot launch URL: $url");
       }
     } catch (e) {
-      // On any exception, fallback to WebView
-      _openInWebView(url);
+      print("Error launching URL: $e");
     }
   }
 
-  void _openInWebView(String url) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => WebViewScreen(url: url),
-      ),
-    );
-  }
 
 
 
@@ -106,7 +93,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.teal,
-        title: Text("Notifications"),
+        title: Text("Notifications",style: TextStyle(fontFamily: 'Parkinsans')),
         automaticallyImplyLeading: false,
         leading: IconButton(
           onPressed: (){
@@ -130,6 +117,8 @@ class _NotificationScreenState extends State<NotificationScreen> {
         ),
       ),
       body: RefreshIndicator(
+        color: Colors.teal,
+
         onRefresh: _refreshData,
         child: StreamBuilder<QuerySnapshot>(
           stream: _notificationsStream,

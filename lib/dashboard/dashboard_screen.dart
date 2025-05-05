@@ -34,7 +34,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         title: Center(
             child: Text(
           "Cash Easy",
-          style: TextStyle(fontSize: 30),
+          style: TextStyle(fontSize: 30,fontFamily: 'Parkinsans'),
         )),
         leading: IconButton(
             onPressed: () {
@@ -42,6 +42,12 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   MaterialPageRoute(builder: (context) => NotificationScreen()));
             },
             icon: Icon(Icons.notifications)),
+        actions: [ IconButton(
+            onPressed: () {
+              // Navigator.push(context,
+              //     MaterialPageRoute(builder: (context) => NoticeScreen()));
+            },
+            icon: Icon(Icons.note,color: Colors.transparent,)),],
       ),
       body: _screens[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(

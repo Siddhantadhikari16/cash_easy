@@ -12,7 +12,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("History",),backgroundColor: Colors.teal,),
+      appBar: AppBar(title: Text("History",style: TextStyle(fontFamily: 'Parkinsans'),),backgroundColor: Colors.teal,),
      body: Column(
        mainAxisAlignment: MainAxisAlignment.center,
        crossAxisAlignment: CrossAxisAlignment.center,
